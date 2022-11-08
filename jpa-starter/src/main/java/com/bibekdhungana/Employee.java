@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "EMPLOYEE")
@@ -31,6 +32,11 @@ public class Employee {
 
   @Enumerated(EnumType.STRING)
   private EmployeeType type;
+
+  @Transient
+  private String debugString;
+
+  // private transient String debugString;
 
   public Employee() {}
 
