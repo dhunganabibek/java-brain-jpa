@@ -48,6 +48,7 @@ public class App {
     System.out.println(employee);
   }
 
+  //Update from CRUD
   public static void updateEmployee() {
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(
       "myApp"
@@ -65,7 +66,23 @@ public class App {
     entityManagerFactory.close();
   }
 
+  //Delete from CRUD
+  public static void deleteEmployee() {
+    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(
+      "myApp"
+    );
+    EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+    Employee e = entityManager.find(Employee.class, 2);
+    EntityTransaction transaction = entityManager.getTransaction();
+    transaction.begin();
+    entityManager.remove(e);
+    transaction.commit();
+    entityManager.close();
+    entityManagerFactory.close();
+  }
+
   public static void main(String[] args) {
-    App.updateEmployee();
+    App.deleteEmployee();
   }
 }
