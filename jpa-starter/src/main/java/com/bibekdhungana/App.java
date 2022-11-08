@@ -17,6 +17,7 @@ public class App {
     employee.setDob(new Date());
     employee.setAge(25);
     employee.setSsn("123456789");
+    employee.setType(EmployeeType.FULL_TIME);
 
     Employee employee1 = new Employee();
     employee1.setId(2);
@@ -24,6 +25,7 @@ public class App {
     employee1.setDob(new Date());
     employee1.setAge(25);
     employee1.setSsn("987654321");
+    employee1.setType(EmployeeType.CONTRACTOR);
 
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(
       "myApp"

@@ -3,6 +3,8 @@ package com.bibekdhungana;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -26,6 +28,9 @@ public class Employee {
 
   @Temporal(TemporalType.DATE)
   private Date dob;
+
+  @Enumerated(EnumType.STRING)
+  private EmployeeType type;
 
   public Employee() {}
 
@@ -85,5 +90,19 @@ public class Employee {
    */
   public void setDob(Date dob) {
     this.dob = dob;
+  }
+
+  /**
+   * @return EmployeeType return the type
+   */
+  public EmployeeType getType() {
+    return type;
+  }
+
+  /**
+   * @param type the type to set
+   */
+  public void setType(EmployeeType type) {
+    this.type = type;
   }
 }
