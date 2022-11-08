@@ -12,7 +12,6 @@ public class App {
     System.out.println("Hello World!");
 
     Employee employee = new Employee();
-    employee.setId(1);
     employee.setName("Bibek Dhungana");
     employee.setDob(new Date());
     employee.setAge(25);
@@ -20,7 +19,6 @@ public class App {
     employee.setType(EmployeeType.FULL_TIME);
 
     Employee employee1 = new Employee();
-    employee1.setId(2);
     employee1.setName("Amrit Upadyaya");
     employee1.setDob(new Date());
     employee1.setAge(25);
