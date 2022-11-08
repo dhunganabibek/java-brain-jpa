@@ -1,5 +1,6 @@
 package com.bibekdhungana;
 
+import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -13,10 +14,16 @@ public class App {
     Employee employee = new Employee();
     employee.setId(1);
     employee.setName("Bibek Dhungana");
+    employee.setDob(new Date());
+    employee.setAge(25);
+    employee.setSsn("123456789");
 
     Employee employee1 = new Employee();
     employee1.setId(2);
     employee1.setName("Amrit Upadyaya");
+    employee1.setDob(new Date());
+    employee1.setAge(25);
+    employee1.setSsn("987654321");
 
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(
       "myApp"
