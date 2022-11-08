@@ -83,6 +83,47 @@ public class App {
   }
 
   public static void main(String[] args) {
-    App.deleteEmployee();
+    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(
+      "myApp"
+    );
+    EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+    //creating new object
+    Employee employee = new Employee();
+    employee.setName("Bibek Dhungana");
+    employee.setDob(new Date());
+    employee.setAge(25);
+    employee.setSsn("123456789");
+    employee.setType(EmployeeType.FULL_TIME);
+
+    //creating new access card
+    AccessCard card = new AccessCard();
+    card.setIssuedDate(new Date());
+    card.setIsActive(true);
+    card.setFirmwareVersion("1.0.0");
+
+    Employee employee1 = new Employee();
+    employee1.setName("Amrit Upadyaya");
+    employee1.setDob(new Date());
+    employee1.setAge(25);
+    employee1.setSsn("987654321");
+    employee1.setType(EmployeeType.CONTRACTOR);
+
+    AccessCard card1 = new AccessCard();
+    card1.setIssuedDate(new Date());
+    card1.setIsActive(false);
+    card1.setFirmwareVersion("2.0.0");
+
+    EntityTransaction transaction = entityManager.getTransaction();
+
+    transaction.begin();
+    entityManager.persist(employee);
+    entityManager.persist(employee1);
+    entityManager.persist(card);
+    entityManager.persist(card1);
+    transaction.commit();
+
+    entityManager.close();
+    entityManagerFactory.close();
   }
 }
