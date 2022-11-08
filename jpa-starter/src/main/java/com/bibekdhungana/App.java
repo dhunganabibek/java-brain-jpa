@@ -48,7 +48,24 @@ public class App {
     System.out.println(employee);
   }
 
+  public static void updateEmployee() {
+    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(
+      "myApp"
+    );
+    EntityManager entityManager = entityManagerFactory.createEntityManager();
+    Employee e = entityManager.find(Employee.class, 1);
+    System.out.println(e);
+    e.setName("Newton Dhungana");
+
+    EntityTransaction entityTransaction = entityManager.getTransaction();
+    entityTransaction.begin();
+    entityManager.persist(e);
+    entityTransaction.commit();
+    entityManager.close();
+    entityManagerFactory.close();
+  }
+
   public static void main(String[] args) {
-    App.readEmployee();
+    App.updateEmployee();
   }
 }
