@@ -113,4 +113,30 @@ public class Employee {
   public void setType(EmployeeType type) {
     this.type = type;
   }
+
+  @Override
+  public String toString() {
+    return (
+      "{" +
+      " id='" +
+      getId() +
+      "'" +
+      ", name='" +
+      getName() +
+      "'" +
+      ", age='" +
+      getAge() +
+      "'" +
+      ", ssn='" +
+      getSsn() +
+      "'" +
+      ", dob='" +
+      getDob() +
+      "'" +
+      ", type='" +
+      getType() +
+      "'" +
+      "}"
+    );
+  }
 }

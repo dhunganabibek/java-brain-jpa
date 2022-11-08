@@ -8,9 +8,8 @@ import javax.persistence.Persistence;
 
 public class App {
 
-  public static void main(String[] args) {
-    System.out.println("Hello World!");
-
+  //add employee method : CREATE of CRUD
+  public static void addEmployee() {
     Employee employee = new Employee();
     employee.setName("Bibek Dhungana");
     employee.setDob(new Date());
@@ -37,5 +36,19 @@ public class App {
     transaction.commit();
     entityManagerFactory.close();
     entityManager.close();
+  }
+
+  //reading the employee from the database: READ from CRUD
+  public static void readEmployee() {
+    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(
+      "myApp"
+    );
+    EntityManager entityManager = entityManagerFactory.createEntityManager();
+    Employee employee = entityManager.find(Employee.class, 1);
+    System.out.println(employee);
+  }
+
+  public static void main(String[] args) {
+    App.readEmployee();
   }
 }
