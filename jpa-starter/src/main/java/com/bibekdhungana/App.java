@@ -35,5 +35,7 @@ public class App {
     entityManager.persist(employee);
     entityManager.persist(employee1);
     transaction.commit();
+    entityManagerFactory.close();
+    entityManager.close();
   }
 }
